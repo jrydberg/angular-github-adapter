@@ -58,6 +58,12 @@ angular.module('pascalprecht.github-adapter').provider('$github', function () {
         auth: authType
       });
     };
+    
+    $github.setToken = function (token) {
+      github = new Github({
+        token: token
+      });
+    };
 
     $github.getRepo = function (username, reponame) {
       return $q.when($githubRepository(github.getRepo(username, reponame)));
